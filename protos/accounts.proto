@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+package silk.core;
+
+service Silker {
+    rpc CreateAccount(AccountRequest) returns (AccountResponse) {
+        option (google.api.http) = {
+            put: "/v1/silk/account"
+            body: "*"
+        };
+    }
+}
+
+message AccountRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        json_schema: {
+            title: "simple title";
+            description: "simple title";
+        };
+    };
+    string platform = 1;    //平台标识
+    string account_id = 2;  //平台帐号
+    string serial_no = 3;
+    string nick_name = 4;
+    string head_image = 5;
+    string qr_code = 6;
+    string metadata = 7;
+}
+
+message AccountResponse {
+    uint64 id = 1;
+}

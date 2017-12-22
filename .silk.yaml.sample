@@ -1,0 +1,9 @@
+# mysql config
+mysql_dns: root:123456@tcp(10.10.28.178:3306)/silk?parseTime=true&charset=utf8mb4,utf8&loc=Asia%2FShanghai #&interpolateParams=true
+table_prefix: silk_demo
+
+# grpc host
+grpc_host: :8588
+
+# proxy host
+proxy_host: :8688
